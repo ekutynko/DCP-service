@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="lod-stub:war exploded">
+    <output-path>$PROJECT_DIR$/Lod-Stub/target/lod-stub</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="lod-stub/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lod-stub" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

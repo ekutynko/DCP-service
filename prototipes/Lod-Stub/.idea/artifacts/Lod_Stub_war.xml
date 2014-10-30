@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Lod-Stub:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lod-stub.war">
+      <element id="artifact" artifact-name="Lod-Stub:war exploded" />
+    </root>
+  </artifact>
+</component>

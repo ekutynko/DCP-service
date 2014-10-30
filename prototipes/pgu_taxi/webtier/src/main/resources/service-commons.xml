@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <!-- Enable @Transactional support -->
+    <tx:annotation-driven/>       
+    
+    <!-- Create proxied journalWriter -->
+    <bean id="journalWriter" class="ru.lanit.ws.pgu.journalling.JournalWriter" scope="request">
+        <aop:scoped-proxy/>
+    </bean>
+    
+    <bean class="org.springframework.ws.transport.http.WebServiceMessageReceiverHandlerAdapter">
+        <property name="messageFactory" ref="messageFactory"/>
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="defaultHandler" ref="messageDispatcher"/>
+    </bean>
+
+    <bean id="messageDispatcher" class="org.springframework.ws.soap.server.SoapMessageDispatcher"/>
+
+    <!-- Enable custom SoapFaultException handling -->
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>
+
+    <!-- Create JSR-303 validator factory -->
+    <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+    <!-- Use SUN's SAAJ reference implementation -->
+    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+        <property name="messageFactory">
+            <bean class="com.sun.xml.internal.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl"/>
+        </property>
+    </bean>
+
+
+
+</beans>

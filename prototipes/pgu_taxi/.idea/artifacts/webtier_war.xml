@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webtier:war">
+    <output-path>$PROJECT_DIR$/webtier/target</output-path>
+    <root id="archive" name="service.war">
+      <element id="artifact" artifact-name="webtier:war exploded" />
+    </root>
+  </artifact>
+</component>

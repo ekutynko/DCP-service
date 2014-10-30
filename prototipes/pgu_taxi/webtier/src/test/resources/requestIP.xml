@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:requestIPType xmlns:ns1="http://lod.chtd.org/ws/pgu_service/" xmlns:smev-request="http://smev.gosuslugi.ru/request/rev111111" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lod.chtd.org/ws/pgu_service/ service.xsd ">
+  <ns1:licensiat>
+    <ns1:licensiat_info>
+      <ns1:first_name>ns1:first_name</ns1:first_name>
+      <ns1:last_name>ns1:last_name</ns1:last_name>
+    </ns1:licensiat_info>
+    <ns1:location/>
+    <ns1:registration/>
+    <ns1:contact_info>
+      <ns1:phone_number>ns1:phone_number</ns1:phone_number>
+      <ns1:email>ns1:email</ns1:email>
+    </ns1:contact_info>
+  </ns1:licensiat>
+  <ns1:activity_places>
+    <ns1:ActivityPlace/>
+  </ns1:activity_places>
+  <ns1:accreditation_areas>
+    <ns1:AccreditationAreaType>
+      <ns1:product_name>0</ns1:product_name>
+      <ns1:codes>ns1:codes</ns1:codes>
+    </ns1:AccreditationAreaType>
+  </ns1:accreditation_areas>
+  <ns1:certificate>
+    <ns1:certificate_no>ns1:certificate_no</ns1:certificate_no>
+    <ns1:certificate_date>2001-01-01</ns1:certificate_date>
+  </ns1:certificate>
+  <ns1:license_request>
+    <ns1:action_types>ns1:action_types</ns1:action_types>
+    <ns1:authority>ns1:authority</ns1:authority>
+    <ns1:process_type>ns1:process_type</ns1:process_type>
+    <ns1:certificate_type>1</ns1:certificate_type>
+    <ns1:reform_reason>1</ns1:reform_reason>
+    <ns1:cert_declared_valid_date>ns1:cert_declared_valid_date</ns1:cert_declared_valid_date>
+  </ns1:license_request>
+  <ns1:action_types>
+    <ns1:sphere_of_control>ns1:sphere_of_control</ns1:sphere_of_control>
+    <ns1:action_types>ns1:action_types</ns1:action_types>
+  </ns1:action_types>
+  <smev-request:AppliedDocuments>
+    <smev-request:AppliedDocument smev-request:ID="">
+      <smev-request:Name>smev-request:Name</smev-request:Name>
+      <smev-request:URL>smev-request:URL</smev-request:URL>
+      <smev-request:Type>smev-request:Type</smev-request:Type>
+    </smev-request:AppliedDocument>
+  </smev-request:AppliedDocuments>
+</ns1:requestIPType>

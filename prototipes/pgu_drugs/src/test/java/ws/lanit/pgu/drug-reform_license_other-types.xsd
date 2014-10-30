@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://lanit.ru/ws/commons" xmlns:ns2="http://lanit.ru/ws/pgu/drug" targetNamespace="http://lanit.ru/ws/pgu/drug/reform_license_other" version="1.0">
+
+  <xs:import namespace="http://lanit.ru/ws/commons" schemaLocation="common.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/pgu/drug" schemaLocation="drug-types.xsd"/>
+
+  <xs:complexType name="ActivityAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CadastralNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="ConditionalCadastralNo" type="xs:string"/>
+      <xs:element name="PostIndex" type="xs:string"/>
+      <xs:element name="Region" type="xs:string"/>
+      <xs:element name="District" type="xs:string"/>
+      <xs:element name="Settlement" type="xs:string"/>
+      <xs:element minOccurs="0" name="VillageType" type="xs:string"/>
+      <xs:element minOccurs="0" name="Village" type="xs:string"/>
+      <xs:element minOccurs="0" name="Location" type="xs:string"/>
+      <xs:element minOccurs="0" name="objectType" type="ns1:DictionaryItem"/>
+      <xs:element minOccurs="0" name="rightType" type="ns1:DictionaryItem"/>
+      <xs:element minOccurs="0" name="DocRef" type="xs:string"/>
+      <xs:element minOccurs="0" name="WorkStructure" type="ns2:WorkStructure"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

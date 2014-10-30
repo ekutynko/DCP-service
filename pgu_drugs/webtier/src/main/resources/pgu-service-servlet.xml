@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:oxm="http://www.springframework.org/schema/oxm"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+       http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <import resource="pgu-schemas.xml"/>
+    <import resource="service-commons.xml"/>
+
+    <aop:aspectj-autoproxy expose-proxy="true"/>
+    
+    <oxm:jaxb2-marshaller id="pguMarshaller" contextPath="ru.lanit.ws.pgu.beans.ws"/>
+    <!--<oxm:jaxb2-marshaller id="applicationMarshaller" contextPath=""/>-->
+
+    <bean id="applicationMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <!--<property name="contextPaths">-->
+            <!--<list>-->
+                <!--<value>ru.lanit.ws.pgu.beans.applicationOldOld.gosuslugi.smev.request.req.rev120528</value>-->
+                <!--<value>ru.lanit.ws.pgu.beans.applicationOldOld.gosuslugi.smev.request.rev111111</value>-->
+                <!--<value>ru.lanit.ws.pgu.beans.applicationOldOld.lanit.ws.pgu.duplic_license</value>-->
+                <!--<value>ru.lanit.ws.pgu.beans.applicationOldOld.lanit.ws.pgu.get_license</value>-->
+                <!--<value>ru.lanit.ws.pgu.beans.applicationOldOld.lanit.ws.pgu.reform_client</value>-->
+                <!--<value>ru.lanit.ws.pgu.beans.applicationOldOld.lanit.ws.pgu.reform_license</value>-->
+            <!--</list>-->
+        <!--</property>-->
+
+        <property name="classesToBeBound">
+            <list>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.Data</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.RequestDataType</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.AppliedDocumentsType</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.AppliedDocumentType</value>
+
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.get_license.GetLicenseRequest</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.get_license.ActivityAddress</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.cancel_license.CancelLicenseRequest</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.duplicate_license.DuplicateLicenseRequest</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.license_info.LicenseInfoRequest</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.reform_license.ActivityAddress</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.reform_license.ReformLicenseRequest</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.reform_license_other.ActivityAddress</value>
+                <value>ru.lanit.ws.pgu.beans.app.drug.requests.reform_license_other.ReformLicenseOtherRequest</value>
+                <value>ru.lanit.ws.pgu.beans.common.Dictionary</value>
+                <value>ru.lanit.ws.pgu.beans.common.DictionaryItem</value>
+            </list>
+        </property>
+
+        <property name="schema" value="/WEB-INF/wsdl/pgu/app/drug-requests.xsd"/>
+    </bean>
+
+	<sws:annotation-driven marshaller="pguMarshaller" unmarshaller="pguMarshaller"/>
+    
+	<sws:interceptors>
+        <bean class="ru.lanit.ws.pgu.security.SignatureInterceptor">
+            <constructor-arg>
+                <bean class="ru.lanit.ws.pgu.PGUExceptions.SignatureError"/>
+            </constructor-arg>
+        </bean>
+	</sws:interceptors>
+
+	<context:annotation-config/>
+	<context:component-scan base-package="ru.lanit.ws.pgu"/>
+	<context:property-placeholder location="classpath*:application.properties"/>
+
+    <jee:jndi-lookup id="lodHttpHost" jndi-name="ru.lanit.ws.lod.http.host"/>
+    <jee:jndi-lookup id="lodHttpPort" jndi-name="ru.lanit.ws.lod.http.port"/>
+
+    <bean id="lodRequestSender" class="ru.lanit.ws.pgu.lod.LodRequestSender">
+        <constructor-arg name="host" ref="lodHttpHost"/>
+        <constructor-arg name="port" ref="lodHttpPort"/>
+    </bean>
+
+	<bean id="pgu.sender.code" class="java.lang.String">
+		<constructor-arg value="${pgu.sender.code}"/>
+	</bean>
+	<bean id="pgu.sender.name" class="java.lang.String">
+		<constructor-arg value="${pgu.sender.name}"/>
+	</bean>
+	<bean id="pgu.originator.code" class="java.lang.String">
+		<constructor-arg value="${pgu.originator.code}"/>
+	</bean>
+	<bean id="pgu.originator.name" class="java.lang.String">
+		<constructor-arg value="${pgu.originator.name}"/>
+	</bean>
+	<bean id="pgu.typeCode" class="java.lang.String">
+		<constructor-arg value="${pgu.typeCode}"/>
+	</bean>
+	<bean id="pgu.serviceCode" class="java.lang.String">
+		<constructor-arg value="${pgu.serviceCode}"/>
+	</bean>
+
+</beans>

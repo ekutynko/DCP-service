@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:sch="http://lanit.ru/ws/pgu" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://lanit.ru/ws/pgu" targetNamespace="http://lanit.ru/ws/pgu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xs:schema xmlns:smev="http://smev.gosuslugi.ru/rev120315" xmlns:pgu="http://lanit.ru/ws/pgu" xmlns:sch="http://lanit.ru/ws/pgu" elementFormDefault="qualified" targetNamespace="http://lanit.ru/ws/pgu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import schemaLocation="../main/webapp/WEB-INF/wsdl/pgu/smev_pgu.xsd" namespace="http://smev.gosuslugi.ru/rev120315" />
+            <xs:element name="RegisterRequest" type="smev:RegisterRequestType" />
+            <xs:element name="RegisterResponse" type="smev:RegisterResponseType" />
+            <xs:element name="CancelRequest" type="smev:CancelRequestType" />
+            <xs:element name="CancelResponse" type="smev:CancelResponseType" />
+            <xs:element name="CatalogRequest" type="smev:CatalogRequestType" />
+            <xs:element name="CatalogResponse" type="smev:CatalogResponseType" />
+            <xs:element name="StatusRequest" type="smev:StatusRequestType" />
+            <xs:element name="StatusResponse" type="smev:StatusResponseType" />
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="StatusRequest">
+        <wsdl:part name="StatusRequest" element="tns:StatusRequest" />
+    </wsdl:message>
+    <wsdl:message name="CatalogRequest">
+        <wsdl:part name="CatalogRequest" element="tns:CatalogRequest" />
+    </wsdl:message>
+    <wsdl:message name="CancelRequest">
+        <wsdl:part name="CancelRequest" element="tns:CancelRequest" />
+    </wsdl:message>
+    <wsdl:message name="RegisterRequest">
+        <wsdl:part name="RegisterRequest" element="tns:RegisterRequest" />
+    </wsdl:message>
+    <wsdl:message name="StatusResponse">
+        <wsdl:part name="StatusResponse" element="tns:StatusResponse" />
+    </wsdl:message>
+    <wsdl:message name="CancelResponse">
+        <wsdl:part name="CancelResponse" element="tns:CancelResponse" />
+    </wsdl:message>
+    <wsdl:message name="CatalogResponse">
+        <wsdl:part name="CatalogResponse" element="tns:CatalogResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegisterResponse">
+        <wsdl:part name="RegisterResponse" element="tns:RegisterResponse" />
+    </wsdl:message>
+    <wsdl:portType name="ServicePortType">
+        <wsdl:operation name="GetStatus">
+            <wsdl:input name="StatusRequest" message="tns:StatusRequest" />
+            <wsdl:output name="StatusResponse" message="tns:StatusResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDictionary">
+            <wsdl:input name="CatalogRequest" message="tns:CatalogRequest" />
+            <wsdl:output name="CatalogResponse" message="tns:CatalogResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="CancelRequest">
+            <wsdl:input name="CancelRequest" message="tns:CancelRequest" />
+            <wsdl:output name="CancelResponse" message="tns:CancelResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="RegisterRequest">
+            <wsdl:input name="RegisterRequest" message="tns:RegisterRequest" />
+            <wsdl:output name="RegisterResponse" message="tns:RegisterResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PGUPortBinding" type="tns:ServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="GetStatus">
+            <soap:operation soapAction="" />
+            <wsdl:input name="StatusRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="StatusResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDictionary">
+            <soap:operation soapAction="" />
+            <wsdl:input name="CatalogRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="CatalogResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelRequest">
+            <soap:operation soapAction="" />
+            <wsdl:input name="CancelRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="CancelResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterRequest">
+            <soap:operation soapAction="" />
+            <wsdl:input name="RegisterRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="RegisterResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PGU">
+        <wsdl:port name="PGUPort" binding="tns:PGUPortBinding">
+            <soap:address location="http://rgm.lod.chtd.ru:80/service_tax/pgu/" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

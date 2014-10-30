@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 2012 Developer Edition (Trial) 10.1.2.4113 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://lanit.ru/ws/pgu/types"
+           xmlns:typ="http://lanit.ru/ws/pgu/types"
+           xmlns:com="http://lanit.ru/ws/commons"
+           xmlns:chan="http://lanit.ru/ws/pgu/changeorderinfo"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">    
+    <xs:import schemaLocation="pgu_orderinfo.xsd" namespace="http://lanit.ru/ws/pgu/changeorderinfo" />
+    <xs:import schemaLocation="commons.xsd" namespace="http://lanit.ru/ws/commons" />
+    <xs:complexType name="ServiceErrorInfoType">
+        <xs:sequence>
+            <xs:element name="errorCode" type="xs:string" />
+            <xs:element name="errorMessage" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="error" type="typ:ServiceErrorInfoType" />
+    <xs:complexType name="ServiceCancelRequestInfoType">
+        <xs:sequence>
+            <xs:element name="RequestID" type="xs:string" />
+            <xs:element name="Reason" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceCancelRequestAppDataType">
+        <xs:sequence>
+            <xs:element name="CancelRequestInfo" type="typ:ServiceCancelRequestInfoType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="ResponseCodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK" />
+            <xs:enumeration value="ERROR" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ServiceCancelResponseInfoType">
+        <xs:sequence>
+            <xs:element name="ResponseCode" type="typ:ResponseCodeType" minOccurs="0" nillable="true" />
+            <xs:element name="Comment" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceCancelRequestResponseAppDataType">
+        <xs:choice>
+            <xs:element name="CancelResponseInfo" type="typ:ServiceCancelResponseInfoType" />
+            <xs:element ref="typ:error" />
+        </xs:choice>
+    </xs:complexType>        
+    <xs:complexType name="ServiceResponseAppDataType">
+        <xs:sequence>
+            <xs:element ref="chan:changeOrderInfo" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceRequestAppDataType">
+        <xs:sequence>
+            <xs:element ref="chan:orderRequest" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CatalogRequestInfoType">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="process" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Код и справочника PROCESS_TYPES
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="parent" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Пока используется только для связи Марка ТС - Модель ТС (CAR_BRANDS - CAR_MODELS)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CatalogRequestAppDataType">
+        <xs:sequence>
+            <xs:element name="catalogInfo" type="typ:CatalogRequestInfoType" />
+        </xs:sequence>
+    </xs:complexType>        
+    <xs:complexType name="CatalogResponseAppDataType">
+        <xs:choice>
+            <xs:element name="catalogData" type="com:Dictionary" />
+            <xs:element ref="typ:error" />
+        </xs:choice>
+    </xs:complexType> 
+    <xs:complexType name="StatusRequestInfoType">
+        <xs:sequence>
+            <xs:element name="pguId" type="xs:string" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        ID заявки, поданной с ПГУ
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusRequestAppDataType">
+        <xs:sequence>
+            <xs:element name="statusRequestInfo" type="typ:StatusRequestInfoType" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusResponseInfoType">
+        <xs:sequence>
+            <xs:element name="pguId" type="xs:string" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        ID заявки, поданной с ПГУ
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="statusCode" type="xs:int" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        код статуса
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="statusText" type="xs:string" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        текстовое описание статуса
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="documents" type="xs:base64Binary" nillable="true" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        архив документов
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusResponseAppDataType">
+        <xs:choice>
+            <xs:element name="statusResponseInfo" type="typ:StatusResponseInfoType"/>
+            <xs:element ref="typ:error" />
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>

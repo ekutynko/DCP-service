@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://lanit.ru/ws/commons" xmlns:tns="http://lanit.ru/ws/pgu/drug" targetNamespace="http://lanit.ru/ws/pgu/drug" version="1.0">
+
+  <xs:import namespace="http://lanit.ru/ws/commons" schemaLocation="common.xsd"/>
+
+  <xs:complexType name="DemanderExtractInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Surname" type="xs:string"/>
+      <xs:element minOccurs="0" name="FirstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="FartherName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PostalAddress">
+    <xs:sequence>
+      <xs:element name="PostIndex" type="xs:string"/>
+      <xs:element name="Region" type="xs:string"/>
+      <xs:element minOccurs="0" name="District" type="xs:string"/>
+      <xs:element minOccurs="0" name="Settlement" type="xs:string"/>
+      <xs:element minOccurs="0" name="Village" type="xs:string"/>
+      <xs:element minOccurs="0" name="Location" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OtherInfo">
+    <xs:sequence>
+      <xs:element name="Phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="Phone2" type="xs:string"/>
+      <xs:element minOccurs="0" name="Phone3" type="xs:string"/>
+      <xs:element minOccurs="0" name="Fax" type="xs:string"/>
+      <xs:element minOccurs="0" name="Email" type="xs:string"/>
+      <xs:element minOccurs="0" name="HeadFIO" type="xs:string"/>
+      <xs:element minOccurs="0" name="HeadPosition" type="xs:string"/>
+      <xs:element minOccurs="0" name="RepresentativeFIO" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LicensiatInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FullName" type="xs:string"/>
+      <xs:element minOccurs="0" name="ShortName" type="xs:string"/>
+      <xs:element minOccurs="0" name="FirmName" type="xs:string"/>
+      <xs:element minOccurs="0" name="OrgForm" type="ns1:DictionaryItem"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InnInfo">
+    <xs:sequence>
+      <xs:element name="Inn" type="xs:string"/>
+      <xs:element name="InnDocName" type="xs:string"/>
+      <xs:element name="InnDate" type="xs:dateTime"/>
+      <xs:element name="InnSeries" type="xs:dateTime"/>
+      <xs:element name="InnWho" type="xs:dateTime"/>
+      <xs:element name="InnRegDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegistrationInfo">
+    <xs:sequence>
+      <xs:element name="Ogrn" type="xs:string"/>
+      <xs:element name="OgrnName" type="xs:string"/>
+      <xs:element name="OgrnDate" type="xs:dateTime"/>
+      <xs:element name="OgrnSeries" type="xs:string"/>
+      <xs:element name="OgrnNo" type="xs:string"/>
+      <xs:element name="OgrnWho" type="xs:string"/>
+      <xs:element name="OgrnWhoAddress" type="xs:string"/>
+      <xs:element name="OgrnRegDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LegalAddress">
+    <xs:sequence>
+      <xs:element name="PostIndex" type="xs:string"/>
+      <xs:element name="Region" type="xs:string"/>
+      <xs:element minOccurs="0" name="District" type="xs:string"/>
+      <xs:element minOccurs="0" name="Settlement" type="xs:string"/>
+      <xs:element minOccurs="0" name="Village" type="xs:string"/>
+      <xs:element minOccurs="0" name="Location" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LicensiatAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PostIndex" type="xs:string"/>
+      <xs:element minOccurs="0" name="Region" type="xs:string"/>
+      <xs:element name="District" type="xs:string"/>
+      <xs:element name="Settlement" type="xs:string"/>
+      <xs:element minOccurs="0" name="Village" type="xs:string"/>
+      <xs:element minOccurs="0" name="Location" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DemanderInfo">
+    <xs:sequence>
+      <xs:element name="DemanderType" type="ns1:DictionaryItem"/>
+      <xs:element name="FullName" type="xs:string"/>
+      <xs:element minOccurs="0" name="ShortName" type="xs:string"/>
+      <xs:element minOccurs="0" name="FirmName" type="xs:string"/>
+      <xs:element name="OrgForm" type="ns1:DictionaryItem"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="StateFeePayment">
+    <xs:sequence>
+      <xs:element name="PaymentDate" type="xs:dateTime"/>
+      <xs:element name="PaymentSum" type="xs:dateTime"/>
+      <xs:element name="PaymentPurpose" type="xs:dateTime"/>
+      <xs:element name="PaymentNo" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ActivityAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CadastralNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="ConditionalCadastralNo" type="xs:string"/>
+      <xs:element name="PostIndex" type="xs:string"/>
+      <xs:element name="Region" type="xs:string"/>
+      <xs:element name="District" type="xs:string"/>
+      <xs:element name="Settlement" type="xs:string"/>
+      <xs:element minOccurs="0" name="VillageType" type="xs:string"/>
+      <xs:element minOccurs="0" name="Village" type="xs:string"/>
+      <xs:element minOccurs="0" name="Location" type="xs:string"/>
+      <xs:element minOccurs="0" name="objectType" type="ns1:DictionaryItem"/>
+      <xs:element minOccurs="0" name="rightType" type="ns1:DictionaryItem"/>
+      <xs:element minOccurs="0" name="DocRef" type="xs:string"/>
+      <xs:element minOccurs="0" name="WorkStructure" type="tns:WorkStructure"/>
+      <xs:element minOccurs="0" name="HeadCertificateInfoList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="HeadCertificateInfo" type="tns:HeadCertificateInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="LicensiatBuildingList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="LicensiatBuilding" type="tns:LicensiatBuilding"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ComplianceObjectInfoList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ComplianceObjectInfo" type="tns:ComplianceObjectInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="CriminalInfoList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="CriminalInfo" type="tns:CriminalInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WorkStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Works">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="Work" type="ns1:DictionaryItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="HeadCertificateInfo">
+    <xs:sequence>
+      <xs:element name="DocName" type="xs:string"/>
+      <xs:element name="DocNo" type="xs:string"/>
+      <xs:element name="DocDate" type="xs:dateTime"/>
+      <xs:element name="Speciality" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LicensiatBuilding">
+    <xs:sequence>
+      <xs:element name="DocName" type="xs:string"/>
+      <xs:element name="DocNo" type="xs:string"/>
+      <xs:element name="DocDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ComplianceObjectInfo">
+    <xs:sequence>
+      <xs:element name="DocNo" type="xs:string"/>
+      <xs:element name="DocDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CriminalInfo">
+    <xs:sequence>
+      <xs:element name="DocNo" type="xs:string"/>
+      <xs:element name="DocDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LicensiatDocument">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

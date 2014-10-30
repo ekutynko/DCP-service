@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema targetNamespace="http://lanit.ru/ws/pgu/drug/reform_license" version="1.0" xmlns:ns1="http://lanit.ru/ws/commons" xmlns:ns2="http://lanit.ru/ws/pgu/drug" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://lanit.ru/ws/commons" schemaLocation="common.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/pgu/drug" schemaLocation="drug-types.xsd"/>
+
+  <xs:complexType name="ActivityAddress">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element name="CadastralNo" type="xs:string"/>
+        <xs:element name="ConditionalCadastralNo" type="xs:string"/>
+      </xs:choice>
+      <xs:element name="PostIndex" type="xs:string"/>
+      <xs:element name="Region" type="xs:string"/>
+      <xs:element name="District" type="xs:string"/>
+      <xs:element name="Settlement" type="xs:string"/>
+      <xs:element minOccurs="0" name="VillageType" type="xs:string"/>
+      <xs:element minOccurs="0" name="Village" type="xs:string"/>
+      <xs:element minOccurs="0" name="Location" type="xs:string"/>
+      <xs:element minOccurs="0" name="objectType" type="ns1:DictionaryItem"/>
+      <xs:element minOccurs="0" name="rightType" type="ns1:DictionaryItem"/>
+      <xs:element minOccurs="0" name="DocRef" type="xs:string"/>
+      <xs:element minOccurs="0" name="WorkStructure" type="ns2:WorkStructure"/>
+      <xs:element minOccurs="0" name="LicensiatBuildingList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="LicensiatBuilding" type="ns2:LicensiatBuilding"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ComplianceObjectInfoList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ComplianceObjectInfo" type="ns2:ComplianceObjectInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="CriminalInfoList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="CriminalInfo" type="ns2:CriminalInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

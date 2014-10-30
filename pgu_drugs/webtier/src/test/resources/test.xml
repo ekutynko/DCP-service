@@ -1,0 +1,61 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:conf="http://ws.lanit.ru/schema/conf" xmlns:rev="http://smev.gosuslugi.ru/rev111111" xmlns:inc="http://www.w3.org/2004/08/xop/include">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <conf:getConformityCertificateRequest>
+         <rev:Message>
+            <rev:Sender>
+               <rev:Code>?</rev:Code>
+               <rev:Name>?</rev:Name>
+            </rev:Sender>
+            <rev:Recipient>
+               <rev:Code>?</rev:Code>
+               <rev:Name>?</rev:Name>
+            </rev:Recipient>
+            <!--Optional:-->
+            <rev:Originator>
+               <rev:Code>?</rev:Code>
+               <rev:Name>?</rev:Name>
+            </rev:Originator>
+            <rev:TypeCode>?</rev:TypeCode>
+            <rev:Status>?</rev:Status>
+            <rev:Date>?</rev:Date>
+            <rev:ExchangeType>?</rev:ExchangeType>
+            <!--Optional:-->
+            <rev:RequestIdRef>?</rev:RequestIdRef>
+            <!--Optional:-->
+            <rev:OriginRequestIdRef>?</rev:OriginRequestIdRef>
+            <!--Optional:-->
+            <rev:ServiceCode>?</rev:ServiceCode>
+            <!--Optional:-->
+            <rev:CaseNumber>?</rev:CaseNumber>
+            <!--Optional:-->
+            <rev:TestMsg>?</rev:TestMsg>
+         </rev:Message>
+         <rev:MessageData>
+            <!--Optional:-->
+            <rev:AppData>
+               <conf:conformityCertificateRequest>
+                  <conf:certificateBlankNumber>?</conf:certificateBlankNumber>
+                  <conf:certificateNumber>?</conf:certificateNumber>
+                  <conf:issueDate>?</conf:issueDate>
+               </conf:conformityCertificateRequest>
+            </rev:AppData>
+            <!--Optional:-->
+            <rev:AppDocument>
+               <rev:RequestCode>?</rev:RequestCode>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <rev:BinaryData>cid:744632733531</rev:BinaryData>
+               <rev:Reference>
+                  e
+                  <!--Optional:-->
+                  <inc:Include href="?">
+                     <!--You may enter ANY elements at this point-->
+                  </inc:Include>
+                  gero
+               </rev:Reference>
+               <rev:DigestValue>cid:109402116687</rev:DigestValue>
+            </rev:AppDocument>
+         </rev:MessageData>
+      </conf:getConformityCertificateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

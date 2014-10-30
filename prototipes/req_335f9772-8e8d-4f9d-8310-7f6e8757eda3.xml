@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<req:Data xsi:schemaLocation="http://smev.gosuslugi.ru/request/fed/rev120528 request.xsd" xmlns:ns1="http://lanit.ru/ws/pgu/get_license" xmlns:req="http://smev.gosuslugi.ru/request/req/rev120528" xmlns:smev="http://smev.gosuslugi.ru/request/rev111111" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <req:RequestData>
+		<ns1:GetLicenseRequest>
+			<ns1:ClientType>1</ns1:ClientType>
+			<ns1:RequestUL>
+				<ns1:Authority>Отдел организации перевозок легковым такси</ns1:Authority>
+				<ns1:ActivityKind>
+					<ns1:Code>taxi</ns1:Code>
+				</ns1:ActivityKind>
+				<ns1:ProcessType>
+					<ns1:Code>taxi_receipt</ns1:Code>
+				</ns1:ProcessType>
+				<ns1:RegAddress>
+					<ns1:PostIndex>152900</ns1:PostIndex>
+					<ns1:Region>Ярославская область</ns1:Region>
+					<ns1:City>Рыбинск</ns1:City>
+					<ns1:Street>Захарова</ns1:Street>
+					<ns1:House>1</ns1:House>
+				</ns1:RegAddress>
+				<ns1:RegistrationInfo>
+					<ns1:Inn>9276839999</ns1:Inn>
+					<ns1:Phone>+7(485)5567112</ns1:Phone>
+					<ns1:Fax>112343</ns1:Fax>
+					<ns1:Email>zvezda@somemail.com</ns1:Email>				
+					<ns1:RegNo>4510006278111</ns1:RegNo>
+					<ns1:RegNoDate>2007-10-12</ns1:RegNoDate>
+				</ns1:RegistrationInfo>            
+				<ns1:CarsInfo>
+					<ns1:CarInfo>
+						<ns1:Brand>
+							<ns1:Code>Focus</ns1:Code>
+						</ns1:Brand>
+						<ns1:Model>
+							<ns1:Code>Ford</ns1:Code>
+						</ns1:Model>
+						<ns1:Colour>
+							<ns1:Code>White</ns1:Code>
+						</ns1:Colour>
+						<ns1:GosNumber>a657nt</ns1:GosNumber>
+						<ns1:ReleaseYear>2007</ns1:ReleaseYear>
+						<ns1:CarDocInfo>
+							<ns1:CarDocType>
+								<ns1:Code>Свидетельство о регистрации транспортного средства</ns1:Code>
+								<ns1:Name>Свидетельство о регистрации транспортного средства</ns1:Name>
+							</ns1:CarDocType>
+							<ns1:CarDocSeries>567</ns1:CarDocSeries>
+							<ns1:CarDocNumber>15847473</ns1:CarDocNumber>
+							<ns1:CarDocDate>2014-05-25</ns1:CarDocDate>
+							<ns1:CarDocDateExp>2018-05-25</ns1:CarDocDateExp>
+						</ns1:CarDocInfo>
+					</ns1:CarInfo>
+					<ns1:CarInfo>
+						<ns1:Brand>
+							<ns1:Code>Callina</ns1:Code>
+						</ns1:Brand>
+						<ns1:Model>
+							<ns1:Code>Lada</ns1:Code>
+						</ns1:Model>
+						<ns1:Colour>
+							<ns1:Code>Black</ns1:Code>
+						</ns1:Colour>
+						<ns1:GosNumber>m346qw</ns1:GosNumber>
+						<ns1:ReleaseYear>2008</ns1:ReleaseYear>
+						<ns1:CarDocInfo>
+							<ns1:CarDocType>
+								<ns1:Code>Свидетельство о регистрации транспортного средства</ns1:Code>
+								<ns1:Name>Свидетельство о регистрации транспортного средства</ns1:Name>
+							</ns1:CarDocType>
+							<ns1:CarDocSeries>375</ns1:CarDocSeries>
+							<ns1:CarDocNumber>94837592</ns1:CarDocNumber>
+							<ns1:CarDocDate>2014-07-01</ns1:CarDocDate>
+							<ns1:CarDocDateExp>2018-07-01</ns1:CarDocDateExp>
+						</ns1:CarDocInfo>
+					</ns1:CarInfo>
+				</ns1:CarsInfo>
+				<ns1:DeliveryPlaceKind>2</ns1:DeliveryPlaceKind>
+				<ns1:DeliveryPlace>
+					<ns1:Code>5</ns1:Code>
+					<ns1:Name>МФЦ № 5, г. Подольск, ул. Высотная, д. 6</ns1:Name>
+				</ns1:DeliveryPlace>
+				<ns1:LicensiatUL>
+					<ns1:FullName>Звезда</ns1:FullName>
+					<ns1:ShortName>Звезда</ns1:ShortName>
+					<ns1:FirmName>Иванов И.С.</ns1:FirmName>
+					<ns1:OrgForm>
+						<ns1:Code>ОАО</ns1:Code>
+					</ns1:OrgForm>
+				</ns1:LicensiatUL>
+			</ns1:RequestUL>
+		</ns1:GetLicenseRequest>
+    </req:RequestData>
+    <smev:AppliedDocuments>
+        <smev:AppliedDocument>
+            <smev:CodeDocument>0</smev:CodeDocument>
+            <smev:Name>req_335f9772-8e8d-4f9d-8310-7f6e8757eda3.xml</smev:Name>
+            <smev:Number>1</smev:Number>
+            <smev:URL>req_335f9772-8e8d-4f9d-8310-7f6e8757eda3.xml</smev:URL>
+            <smev:Type>text/xml</smev:Type>
+            <smev:DigestValue/>
+        </smev:AppliedDocument>
+        <smev:AppliedDocument>
+            <smev:CodeDocument>taxi_receipt_give_documents_declaration</smev:CodeDocument>
+            <smev:Name>zvezda_request.odt</smev:Name>
+            <smev:Number>2</smev:Number>
+            <smev:URL>zvezda_request.odt</smev:URL>
+            <smev:Type>application/vnd.oasis.opendocument.text</smev:Type>
+            <smev:DigestValue>94vBSpypiqNVY3mNRBV0V+q7XgLJGgNc5y2kslf/+7E=</smev:DigestValue>
+        </smev:AppliedDocument>
+    </smev:AppliedDocuments>
+</req:Data>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 2012 Developer Edition (Trial) 10.1.2.4113 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://smev.gosuslugi.ru/rev120315" 
+           xmlns:smev="http://smev.gosuslugi.ru/rev120315"
+           xmlns:typ="http://lanit.ru/ws/pgu/types"
+           xmlns:chan="http://lanit.ru/ws/pgu/changeorderinfo"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation="pgu_types.xsd" namespace="http://lanit.ru/ws/pgu/types" />    
+    <xs:complexType name="OrgExternalType">
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string" />
+            <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="StatusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PROCESS" />
+            <xs:enumeration value="REQUEST" />
+            <xs:enumeration value="PING" />
+            <xs:enumeration value="ACCEPT" />
+            <xs:enumeration value="FAILURE" />
+            <xs:enumeration value="STATE" />
+            <xs:enumeration value="RESULT" />
+            <xs:enumeration value="REJECT" />
+            <xs:enumeration value="CANCEL" />
+            <xs:enumeration value="INVALID" />
+            <xs:enumeration value="NOTIFY" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TypeCodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GSRV" />
+            <xs:enumeration value="GFNC" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SubMessageType">
+        <xs:sequence>
+            <xs:element name="Status" type="smev:StatusType" nillable="true" />
+            <xs:element name="Originator" type="smev:OrgExternalType" minOccurs="0" nillable="true">
+                <xs:annotation>
+                    <xs:documentation>Сведения об информационной системе</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CaseNumber" type="xs:string" minOccurs="0" nillable="true" />
+            <xs:element name="SubRequestNumber" type="xs:string" nillable="true" />
+            <xs:element name="RequestIdRef" type="xs:string" minOccurs="0" nillable="true" />
+            <xs:element name="ServiceCode" type="xs:string" minOccurs="0" nillable="true" />
+            <xs:element name="Date" type="xs:dateTime" minOccurs="0" nillable="true" />
+            <xs:element name="OriginRequestIdRef" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SubMessagesType">
+        <xs:sequence>
+            <xs:element name="SubMessage" type="smev:SubMessageType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MessageType">
+        <xs:sequence>
+            <xs:element name="Sender" type="smev:OrgExternalType">
+                <xs:annotation>
+                    <xs:documentation>Данные о системе-ициаторе взаимодействия (Потребителе)
+                        (валидируется СМЭВ на соответствие сертификату)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Recipient" type="smev:OrgExternalType">
+                <xs:annotation>
+                    <xs:documentation>Данные о системе-получателе сообщения (Поставщике)
+                        (валидируется СМЭВ по реестру поставщиков)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Originator" type="smev:OrgExternalType" minOccurs="0" nillable="true">
+                <xs:annotation>
+                    <xs:documentation>Данные о системе, инициировавашей цепочку из
+                        нескольких запросов-ответов, объединенных единым процессом в рамках
+                        взаимодействия
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TypeCode" type="smev:TypeCodeType" nillable="true"/>
+            <xs:element name="Status" type="smev:StatusType" nillable="true"/>
+            <xs:element name="Date" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:documentation>Дата создания запроса</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ExchangeType" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Категория взаимодействия</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RequestIdRef" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор сообщения-запроса, инициировавшего
+                        взаимодействие
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OriginRequestIdRef" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор сообщения-запроса, инициировавшего
+                        цепочку из нескольких запросов-ответов, объединенных единым
+                        процессом в рамках взаимодействия
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ServiceCode" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Код услуги</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CaseNumber" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Номер заявки в информационной
+                        системе-отправителе
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SubMessages" type="smev:SubMessagesType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AppDocumentType">
+        <xs:sequence>
+            <xs:element name="RequestCode" type="xs:string" minOccurs="0" nillable="true" />
+            <xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceCancelRequestMessageDataType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:ServiceCancelRequestAppDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>    
+    <xs:complexType name="ServiceCancelRequestMessageDataResponseType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:ServiceCancelRequestResponseAppDataType" />
+        </xs:sequence>
+    </xs:complexType>        
+    <xs:complexType name="ServiceMessageDataType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:ServiceRequestAppDataType" minOccurs="0" nillable="true" />
+            <xs:element name="AppDocument" type="smev:AppDocumentType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>    
+    <xs:complexType name="ServiceMessageDataResponseType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:ServiceResponseAppDataType" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CatalogRequestMessageDataType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:CatalogRequestAppDataType" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>     
+    <xs:complexType name="CatalogResponseMessageDataType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:CatalogResponseAppDataType" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>     
+    <xs:complexType name="StatusRequestMessageDataType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:StatusRequestAppDataType" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusResponseMessageDataType">
+        <xs:sequence>
+            <xs:element name="AppData" type="typ:StatusResponseAppDataType" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegisterRequestType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:ServiceMessageDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegisterResponseType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:ServiceMessageDataResponseType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CancelRequestType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:ServiceCancelRequestMessageDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CancelResponseType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:ServiceCancelRequestMessageDataResponseType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CatalogRequestType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:CatalogRequestMessageDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CatalogResponseType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:CatalogResponseMessageDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusRequestType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:StatusRequestMessageDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StatusResponseType">
+        <xs:sequence>
+            <xs:element name="Message" type="smev:MessageType" minOccurs="0" nillable="true" />
+            <xs:element name="MessageData" type="smev:StatusResponseMessageDataType" minOccurs="0" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

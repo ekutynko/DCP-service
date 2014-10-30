@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/web-services
+	        http://www.springframework.org/schema/web-services/web-services.xsd">
+
+    <bean id="smev_pgu" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="/WEB-INF/wsdl/pgu/smev_pgu.xsd" />
+    </bean>
+    <bean id="pgu_types" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="/WEB-INF/wsdl/pgu/pgu_types.xsd" />
+    </bean>
+    <bean id="pgu_orderinfo" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="/WEB-INF/wsdl/pgu/pgu_orderinfo.xsd" />
+    </bean>
+    <bean id="commons" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="/WEB-INF/wsdl/pgu/commons.xsd" />
+    </bean>
+
+    <!--<bean id="request" class="org.springframework.xml.xsd.SimpleXsdSchema">-->
+        <!--<property name="xsd" value="/WEB-INF/wsdl/pgu/app/requestOld.xsd" />-->
+    <!--</bean>-->
+    <!--<bean id="get_license" class="org.springframework.xml.xsd.SimpleXsdSchema">-->
+        <!--<property name="xsd" value="/WEB-INF/wsdl/pgu/app/get_license.xsd" />-->
+    <!--</bean>-->
+    <!--<bean id="smev_attachments" class="org.springframework.xml.xsd.SimpleXsdSchema">-->
+        <!--<property name="xsd" value="/WEB-INF/wsdl/pgu/app/smev_attachments.xsd" />-->
+    <!--</bean>-->
+
+    <!-- enable WSDL generation -->
+    <!--
+    <bean name="pgu_service" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+        <property name="schema" ref="pgu"/>
+        <property name="portTypeName" value="ServicePortType"/>
+        <property name="locationUri" value="/service/pgu_service"/>
+    </bean>
+    -->
+
+    <sws:static-wsdl id="pgu_service" location="/WEB-INF/wsdl/pgu/pgu_service.wsdl"/>
+
+</beans>

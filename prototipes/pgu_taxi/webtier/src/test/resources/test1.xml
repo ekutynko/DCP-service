@@ -1,0 +1,81 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:conf="http://ws.lanit.ru/schema/conf" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:inc="http://www.w3.org/2004/08/xop/include" xmlns:rev="http://smev.gosuslugi.ru/rev111111" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <soapenv:Header><wsse:Security soapenv:actor="http://smev.gosuslugi.ru/actors/smev" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="CertId-da34f018-06cb-4987-bf8d-64177c6382d7" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">MIIEQTCCA/CgAwIBAgIKKw6azQACAAIUaDAIBgYqhQMCAgMwZTEgMB4GCSqGSIb3DQEJARYRaW5m
+b0BjcnlwdG9wcm8ucnUxCzAJBgNVBAYTAlJVMRMwEQYDVQQKEwpDUllQVE8tUFJPMR8wHQYDVQQD
+ExZUZXN0IENlbnRlciBDUllQVE8tUFJPMB4XDTEyMDYyNTA3MjY1NVoXDTE0MTAwNDA3MDk0MVow
+ggF+MYIBTjCCAUoGCSqGSIb3DQEJAgyCATtGSVJTVF9OQU1FPXQkTUlERExFX05BTUU9UyRMQVNU
+X05BTUU9dCRQT1NJVElPTj10JFJPTEU9UyRJTk49MzM5Mjk0MDg0MCRPUkdfRlVMTF9OQU1FPdCk
+0JjQnSDQntCg0JPQkNCdOiB0JE9SR19PR1JOPTc0NDg5OTcwMTE1NCRPUkdfQUREUkVTUz3Qsy4g
+0JzQvtGB0LrQstCwINGD0Lsg0KHRgtGA0L7QuNGC0LXQu9C10Lkg0LTQvtC8IDE0JE9SR19ST0xF
+PUZPJE9SR19PS09HVT0xMjQxMjQxJE9SR19TVUJfSUQ9MSRPUkdfVFlQRV9JRD0zJE9SR19DT1VO
+VFJZX0lEPTY0MyRPUkdfSURFTlRfSUQ9MTUyMzUyMyRPUkdfU1BaX0lEPTEwMSRmYWtlPWZha2Ux
+CzAJBgNVBAYTAlJVMQ4wDAYDVQQKEwVMQU5JVDENMAsGA1UEAxMEdGVzdDBjMBwGBiqFAwICEzAS
+BgcqhQMCAiMCBgcqhQMCAh4BA0MABEAHA6OxmZOB1NIEzT541hlhayy8BwRJC9IqHA1slrJkSdTD
+8JRGUkJ7mWfOrv+lBMV0o/mfgULHCuFoj+pDKVQOo4IBYzCCAV8wDgYDVR0PAQH/BAQDAgLEMBMG
+A1UdJQQMMAoGCCsGAQUFBwMCMB0GA1UdDgQWBBSQXNEsvPkgbAiex3LxKLiuOgAknTAfBgNVHSME
+GDAWgBRtj14F2V+skReUHpWaBTA4N3oQKjBVBgNVHR8ETjBMMEqgSKBGhkRodHRwOi8vd3d3LmNy
+eXB0b3Byby5ydS9DZXJ0RW5yb2xsL1Rlc3QlMjBDZW50ZXIlMjBDUllQVE8tUFJPKDIpLmNybDCB
+oAYIKwYBBQUHAQEEgZMwgZAwMwYIKwYBBQUHMAGGJ2h0dHA6Ly93d3cuY3J5cHRvcHJvLnJ1L29j
+c3BuYy9vY3NwLnNyZjBZBggrBgEFBQcwAoZNaHR0cDovL3d3dy5jcnlwdG9wcm8ucnUvQ2VydEVu
+cm9sbC9wa2ktc2l0ZV9UZXN0JTIwQ2VudGVyJTIwQ1JZUFRPLVBSTygyKS5jcnQwCAYGKoUDAgID
+A0EAWd9j8I2OHGMkwWNJXpji/anccJ3+3D8Wtdv567EepYhHdxJIPeESMbATvRCuS8liVbnlmRqT
+RRQPeidGrv88Wg==</wsse:BinarySecurityToken><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411"/><ds:Reference URI="#body"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr3411"/><ds:DigestValue>D+04R0hNn5w452tJXtELTlTANuBITkBxdW+DGqTPbz4=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>X1lY0smIj0AfgbugdWWztzG5rl0nHw/AWP7dvAFeIUAyEJN4uhX3HXRAzEus31KFJ7tiZaz3FBLK
+a+fQxALx6w==</ds:SignatureValue><ds:KeyInfo><wsse:SecurityTokenReference wsu:Id="StrId-5e47a6bd-cfc2-4bc5-b42e-f6fc99f8f2c7" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:Reference URI="#CertId-da34f018-06cb-4987-bf8d-64177c6382d7" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soapenv:Header>
+   <soapenv:Body xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="body">
+      <conf:getConformityCertificateRequest>
+         <rev:Message>
+            <rev:Sender>
+               <rev:Code>?</rev:Code>
+               <rev:Name>?</rev:Name>
+            </rev:Sender>
+            <rev:Recipient>
+               <rev:Code>?</rev:Code>
+               <rev:Name>?</rev:Name>
+            </rev:Recipient>
+            <!--Optional:-->
+            <rev:Originator>
+               <rev:Code>?</rev:Code>
+               <rev:Name>?</rev:Name>
+            </rev:Originator>
+            <rev:TypeCode>?</rev:TypeCode>
+            <rev:Status>?</rev:Status>
+            <rev:Date>?</rev:Date>
+            <rev:ExchangeType>?</rev:ExchangeType>
+            <!--Optional:-->
+            <rev:RequestIdRef>?</rev:RequestIdRef>
+            <!--Optional:-->
+            <rev:OriginRequestIdRef>?</rev:OriginRequestIdRef>
+            <!--Optional:-->
+            <rev:ServiceCode>?</rev:ServiceCode>
+            <!--Optional:-->
+            <rev:CaseNumber>?</rev:CaseNumber>
+            <!--Optional:-->
+            <rev:TestMsg>?</rev:TestMsg>
+         </rev:Message>
+         <rev:MessageData>
+            <!--Optional:-->
+            <rev:AppData>
+               <conf:conformityCertificateRequest>
+                  <conf:certificateBlankNumber>?</conf:certificateBlankNumber>
+                  <conf:certificateNumber>?</conf:certificateNumber>
+                  <conf:issueDate>?</conf:issueDate>
+               </conf:conformityCertificateRequest>
+            </rev:AppData>
+            <!--Optional:-->
+            <rev:AppDocument>
+               <rev:RequestCode>?</rev:RequestCode>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <rev:BinaryData>cid:744632733531</rev:BinaryData>
+               <rev:Reference>
+                  e
+                  <!--Optional:-->
+                  <inc:Include href="?">
+                     <!--You may enter ANY elements at this point-->
+                  </inc:Include>
+                  gero
+               </rev:Reference>
+               <rev:DigestValue>cid:109402116687</rev:DigestValue>
+            </rev:AppDocument>
+         </rev:MessageData>
+      </conf:getConformityCertificateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

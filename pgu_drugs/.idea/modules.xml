@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/security/security.iml" filepath="$PROJECT_DIR$/security/security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webtier/webtier.iml" filepath="$PROJECT_DIR$/webtier/webtier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ws-lanit.iml" filepath="$PROJECT_DIR$/ws-lanit.iml" />
+    </modules>
+  </component>
+</project>
+

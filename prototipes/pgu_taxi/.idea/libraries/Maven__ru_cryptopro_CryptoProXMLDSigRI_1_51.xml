@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: ru.cryptopro:CryptoProXMLDSigRI:1.51">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ru/cryptopro/CryptoProXMLDSigRI/1.51/CryptoProXMLDSigRI-1.51.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/ru/cryptopro/CryptoProXMLDSigRI/1.51/CryptoProXMLDSigRI-1.51-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/ru/cryptopro/CryptoProXMLDSigRI/1.51/CryptoProXMLDSigRI-1.51-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

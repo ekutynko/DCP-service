@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema targetNamespace="http://lanit.ru/ws/pgu/drug/requests" version="1.0" xmlns:ns1="http://lanit.ru/ws/commons" xmlns:ns2="http://lanit.ru/ws/pgu/drug" xmlns:ns3="http://lanit.ru/ws/pgu/drug/reform_license_other" xmlns:ns4="http://lanit.ru/ws/commons/drug" xmlns:ns5="http://lanit.ru/ws/pgu/drug/get_license" xmlns:ns6="http://lanit.ru/ws/pgu/drug/reform_license" xmlns:tns="http://lanit.ru/ws/pgu/drug/requests" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://lanit.ru/ws/commons" schemaLocation="common.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/pgu/drug" schemaLocation="drug-types.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/pgu/drug/reform_license_other" schemaLocation="drug-reform_license_other-types.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/commons/drug" schemaLocation="common-drug.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/pgu/drug/get_license" schemaLocation="drug-get_license-types.xsd"/>
+
+  <xs:import namespace="http://lanit.ru/ws/pgu/drug/reform_license" schemaLocation="drug-reform_license-types.xsd"/>
+
+  <xs:element name="Data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RequestData" type="tns:RequestDataType"/>
+        <xs:element minOccurs="0" name="AppliedDocuments" type="ns1:AppliedDocumentsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ReformLicenseOtherRequest">
+    <xs:complexContent>
+      <xs:extension base="ns4:BaseRequestComposite">
+        <xs:sequence>
+          <xs:element name="OperationType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseOrg" type="xs:string"/>
+          <xs:element name="ServiceType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="LicenseDate" type="xs:date"/>
+          <xs:element name="LicenseOrgName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="ReformReason" type="ns1:DictionaryItem"/>
+          <xs:element minOccurs="0" name="ReasonExplanation" type="xs:string"/>
+          <xs:element name="InnInfo" type="ns2:InnInfo"/>
+          <xs:element name="RegistrationInfo" type="ns2:RegistrationInfo"/>
+          <xs:element name="DemanderInfo" type="ns2:DemanderInfo"/>
+          <xs:element name="LegalAddress" type="ns2:LegalAddress"/>
+          <xs:element name="PostalAddress" type="ns2:PostalAddress"/>
+          <xs:element name="OtherInfo" type="ns2:OtherInfo"/>
+          <xs:element name="StateFeePayment" type="ns2:StateFeePayment"/>
+          <xs:element name="ActivityAddress" type="ns3:ActivityAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetLicenseRequest">
+    <xs:complexContent>
+      <xs:extension base="ns4:BaseRequestComposite">
+        <xs:sequence>
+          <xs:element name="OperationType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseOrg" type="xs:string"/>
+          <xs:element name="ServiceType" type="ns1:DictionaryItem"/>
+          <xs:element name="InnInfo" type="ns2:InnInfo"/>
+          <xs:element name="RegistrationInfo" type="ns2:RegistrationInfo"/>
+          <xs:element name="DemanderInfo" type="ns2:DemanderInfo"/>
+          <xs:element name="LegalAddress" type="ns2:LegalAddress"/>
+          <xs:element name="PostalAddress" type="ns2:PostalAddress"/>
+          <xs:element name="OtherInfo" type="ns2:OtherInfo"/>
+          <xs:element name="StateFeePayment" type="ns2:StateFeePayment"/>
+          <xs:element name="ActivityAddress" type="ns5:ActivityAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="LicenseInfoRequest">
+    <xs:complexContent>
+      <xs:extension base="ns4:BaseRequestComposite">
+        <xs:sequence>
+          <xs:element name="OperationType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseOrg" type="xs:string"/>
+          <xs:element name="ServiceType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="LicenseDate" type="xs:date"/>
+          <xs:element minOccurs="0" name="DemanderExtractInfo" type="ns2:DemanderExtractInfo"/>
+          <xs:element name="PostalAddress" type="ns2:PostalAddress"/>
+          <xs:element name="OtherInfo" type="ns2:OtherInfo"/>
+          <xs:element name="LicensiatInfo" type="ns2:LicensiatInfo"/>
+          <xs:element name="InnInfo" type="ns2:InnInfo"/>
+          <xs:element name="RegistrationInfo" type="ns2:RegistrationInfo"/>
+          <xs:element name="LegalAddress" type="ns2:LegalAddress"/>
+          <xs:element name="LicensiatAddress" type="ns2:LicensiatAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DuplicateLicenseRequest">
+    <xs:complexContent>
+      <xs:extension base="ns4:BaseRequestComposite">
+        <xs:sequence>
+          <xs:element name="OperationType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseOrg" type="xs:string"/>
+          <xs:element name="ServiceType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="LicenseDate" type="xs:date"/>
+          <xs:element name="LicenseOrgName" type="xs:string"/>
+          <xs:element name="DocType" type="ns1:DictionaryItem"/>
+          <xs:element name="InnInfo" type="ns2:InnInfo"/>
+          <xs:element name="RegistrationInfo" type="ns2:RegistrationInfo"/>
+          <xs:element name="DemanderInfo" type="ns2:DemanderInfo"/>
+          <xs:element name="LegalAddress" type="ns2:LegalAddress"/>
+          <xs:element name="PostalAddress" type="ns2:PostalAddress"/>
+          <xs:element name="OtherInfo" type="ns2:OtherInfo"/>
+          <xs:element name="StateFeePayment" type="ns2:StateFeePayment"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ReformLicenseRequest">
+    <xs:complexContent>
+      <xs:extension base="ns4:BaseRequestComposite">
+        <xs:sequence>
+          <xs:element name="OperationType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseOrg" type="xs:string"/>
+          <xs:element name="ServiceType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="LicenseDate" type="xs:date"/>
+          <xs:element name="LicenseOrgName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="ReformReason" type="ns1:DictionaryItem"/>
+          <xs:element minOccurs="0" name="ReasonExplanation" type="xs:string"/>
+          <xs:element name="InnInfo" type="ns2:InnInfo"/>
+          <xs:element name="RegistrationInfo" type="ns2:RegistrationInfo"/>
+          <xs:element name="DemanderInfo" type="ns2:DemanderInfo"/>
+          <xs:element name="LegalAddress" type="ns2:LegalAddress"/>
+          <xs:element name="PostalAddress" type="ns2:PostalAddress"/>
+          <xs:element name="OtherInfo" type="ns2:OtherInfo"/>
+          <xs:element name="StateFeePayment" type="ns2:StateFeePayment"/>
+          <xs:element name="ActivityAddress" type="ns6:ActivityAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RequestDataType">
+    <xs:choice>
+      <xs:element name="CancelLicenseRequest" type="tns:CancelLicenseRequest"/>
+      <xs:element name="DuplicateLicenseRequest" type="tns:DuplicateLicenseRequest"/>
+      <xs:element name="GetLicenseRequest" type="tns:GetLicenseRequest"/>
+      <xs:element name="LicenseInfoRequest" type="tns:LicenseInfoRequest"/>
+      <xs:element name="ReformLicenseRequest" type="tns:ReformLicenseRequest"/>
+      <xs:element name="ReformLicenseOtherRequest" type="tns:ReformLicenseOtherRequest"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CancelLicenseRequest">
+    <xs:complexContent>
+      <xs:extension base="ns4:BaseRequestComposite">
+        <xs:sequence>
+          <xs:element name="OperationType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseOrg" type="xs:string"/>
+          <xs:element name="ServiceType" type="ns1:DictionaryItem"/>
+          <xs:element name="LicenseNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="LicenseDate" type="xs:date"/>
+          <xs:element name="LicenseOrgName" type="xs:string"/>
+          <xs:element name="CancelDate" type="xs:date"/>
+          <xs:element name="InnInfo" type="ns2:InnInfo"/>
+          <xs:element name="RegistrationInfo" type="ns2:RegistrationInfo"/>
+          <xs:element name="DemanderInfo" type="ns2:DemanderInfo"/>
+          <xs:element name="LegalAddress" type="ns2:LegalAddress"/>
+          <xs:element name="PostalAddress" type="ns2:PostalAddress"/>
+          <xs:element name="OtherInfo" type="ns2:OtherInfo"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

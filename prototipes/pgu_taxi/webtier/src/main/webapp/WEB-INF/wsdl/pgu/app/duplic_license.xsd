@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ns1="http://lanit.ru/ws/pgu/duplic_license" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://lanit.ru/ws/pgu/duplic_license" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:simpleType name="LicensiatType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Юридическое лицо</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>Индивидуальный предприниматель</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DeliveryPlaceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>Территориальный отдел</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>Муниципальное образование</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DictType">
+        <xs:annotation>
+            <xs:documentation>Структура для представления элемента словаря</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string"/>
+            <xs:element name="Name" type="xs:string" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AddressType">
+        <xs:annotation>
+            <xs:documentation>Адрес объекта</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PostIndex" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Region" type="xs:string"/>
+            <xs:element name="District" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="City" type="xs:string"/>
+            <xs:element name="Street" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="House" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Construction" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Building" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Flat" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Description" type="xs:string" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RepresentativeInfoType">
+        <xs:annotation>
+            <xs:documentation>Информация о представителе заявителя</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="RepresentativeLastName" type="xs:string"/>
+            <xs:element name="RepresentativeFirstName" type="xs:string"/>
+            <xs:element name="RepresentativeSecondName" type="xs:string" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RegistrationInfoType">
+        <xs:annotation>
+            <xs:documentation>Регистрационные данные</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Inn" type="xs:string"/>
+            <xs:element name="InnName" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="InnForm" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="InnSeries" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="InnNumber" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="InnWho" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="InnDate" type="xs:date" nillable="true" minOccurs="0"/>
+            <xs:element name="Phone" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Fax" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="Email" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RegNo" type="xs:string"/>
+            <xs:element name="RegNoName" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RegNoForm" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RegNoSeries" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RegNoNumber" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RegNoDate" type="xs:date"/>
+            <xs:element name="RegDepartAddress" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RepresentativeInfo" type="ns1:RepresentativeInfoType" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RequestBaseType">
+        <xs:annotation>
+            <xs:documentation>Общие данные</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Authority" type="xs:string"/>
+            <xs:element name="ActivityKind" type="ns1:DictType"/>
+            <xs:element name="ProcessType" type="ns1:DictType"/>
+            <xs:element name="LicenseNo" type="xs:string"/>
+            <xs:element name="BlankSeries" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="BlankNo" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="RegAddress" type="ns1:AddressType">
+                <xs:annotation>
+                    <xs:documentation>Юридический адрес - для ЮЛ, адрес места регистрации - для ИП</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RegistrationInfo" type="ns1:RegistrationInfoType"/>
+            <xs:element name="DeliveryPlaceKind" type="ns1:DeliveryPlaceType"/>
+            <xs:element name="DeliveryPlace" type="ns1:DictType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LicensiatIPType">
+        <xs:sequence>
+            <xs:element name="LastName" type="xs:string"/>
+            <xs:element name="FirstName" type="xs:string"/>
+            <xs:element name="SecondName" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="PassportType" type="ns1:DictType"/>
+            <xs:element name="PassportSeries" type="xs:string"/>
+            <xs:element name="PassportNo" type="xs:string"/>
+            <xs:element name="PassportWho" type="xs:string"/>
+            <xs:element name="PassportDate" type="xs:date"/>
+            <xs:element name="CountryCode" type="ns1:DictType" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LicensiatULType">
+        <xs:sequence>
+            <xs:element name="FullName" type="xs:string"/>
+            <xs:element name="ShortName" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="FirmName" type="xs:string" nillable="true" minOccurs="0"/>
+            <xs:element name="OrgForm" type="ns1:DictType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RequestIPType">
+        <xs:complexContent>
+            <xs:extension base="ns1:RequestBaseType">
+                <xs:sequence>
+                    <xs:element name="LicensiatIP" type="ns1:LicensiatIPType"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="RequestULType">
+        <xs:complexContent>
+            <xs:extension base="ns1:RequestBaseType">
+                <xs:sequence>
+                    <xs:element name="LicensiatUL" type="ns1:LicensiatULType"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DuplicLicenseRequestType">
+        <xs:sequence>
+            <xs:element name="ClientType" type="ns1:LicensiatType"/>
+            <xs:choice>
+                <xs:element name="RequestUL" type="ns1:RequestULType"/>
+                <xs:element name="RequestIP" type="ns1:RequestIPType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DuplicLicenseRequest" type="ns1:DuplicLicenseRequestType"/>
+</xs:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+    <bean id="securityService" class="ru.lanit.ws.security.SecurityServiceImpl">
+        <property name="keyStorePath" ref="keyStorePath"/>
+        <property name="aliasName" ref="aliasName"/>
+        <property name="password" ref="keyPassword"/>
+    </bean>
+
+    <jee:jndi-lookup id="keyStorePath" jndi-name="ru.lanit.ws.keystore.path"/>
+    <jee:jndi-lookup id="aliasName" jndi-name="ru.lanit.ws.keyalias.name"/>
+    <jee:jndi-lookup id="keyPassword" jndi-name="ru.lanit.ws.keypassword.value"/>
+    <jee:jndi-lookup id="authToken" jndi-name="ru.lanit.ws.pgu.authToken"/>
+    <!--<jee:jndi-lookup id="mediaRoot" jndi-name="ru.lanit.ws.service.mediaroot"/>-->
+
+</beans>

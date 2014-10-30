@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:smev="http://smev.gosuslugi.ru/request/rev111111"
+           xmlns:req="http://smev.gosuslugi.ru/request/req/rev120528"
+           xmlns:ns1="http://lanit.ru/ws/pgu/get_license"
+           xmlns:ns2="http://lanit.ru/ws/pgu/reform_client"
+           xmlns:ns3="http://lanit.ru/ws/pgu/reform_license"
+           xmlns:ns4="http://lanit.ru/ws/pgu/duplic_license"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://smev.gosuslugi.ru/request/req/rev120528"
+           elementFormDefault="qualified">
+    <xs:import namespace="http://smev.gosuslugi.ru/request/rev111111" schemaLocation="smev_attachments.xsd"/>
+    <xs:import namespace="http://lanit.ru/ws/pgu/get_license" schemaLocation="get_license.xsd"/>
+    <xs:import namespace="http://lanit.ru/ws/pgu/reform_client" schemaLocation="reform_client.xsd"/>
+    <xs:import namespace="http://lanit.ru/ws/pgu/reform_license" schemaLocation="reform_license.xsd"/>
+    <xs:import namespace="http://lanit.ru/ws/pgu/duplic_license" schemaLocation="duplic_license.xsd"/>
+    <xs:complexType name="RequestDataType">
+        <xs:annotation>
+            <xs:documentation>Используется для передачи данных заявки. Данные заявки могут быть переданы только внутри
+                RequestData
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:choice>
+                <xs:element ref="ns1:GetLicenseRequest"/>
+                <xs:element ref="ns2:ReformClientRequest"/>
+                <xs:element ref="ns3:ReformLicenseRequest"/>
+                <xs:element ref="ns4:DuplicLicenseRequest"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Data">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="RequestData" type="req:RequestDataType"/>
+                <xs:element ref="smev:AppliedDocuments" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

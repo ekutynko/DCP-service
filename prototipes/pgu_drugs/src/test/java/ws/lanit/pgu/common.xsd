@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://lanit.ru/ws/commons" targetNamespace="http://lanit.ru/ws/commons" version="1.0">
+
+  <xs:complexType name="DictionaryItem">
+    <xs:sequence>
+      <xs:element form="qualified" name="code" type="xs:string"/>
+      <xs:element form="qualified" name="name" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="optional" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Dictionary">
+    <xs:sequence>
+      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="item" type="tns:DictionaryItem"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
